@@ -210,11 +210,12 @@ ul.errorlist {
 
 .product-detail {
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 20px; /* Increased padding for extra space */
     width: calc(33.333% - 20px);
     box-sizing: border-box;
     text-align: center;
     margin-top: 10px;
+    overflow: visible;  /* Ensures no clipping occurs */
 }
 
 .product-detail img {
@@ -223,6 +224,7 @@ ul.errorlist {
     object-fit: contain;
     margin-bottom: 10px;
     display: block;
+    padding-top: 5px; /* Ensures spacing inside image box */
 }
 
 .product-info {
