@@ -204,21 +204,24 @@ ul.errorlist {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    overflow: visible;  /* Ensures content isn’t clipped */
+    margin-top: 20px;  /* Adds spacing above the product list */
 }
 
 .product-detail {
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 15px;  /* Adds padding inside the box */
     width: calc(33.333% - 20px);
     box-sizing: border-box;
     text-align: center;
+    margin-top: 10px;  /* Adds some space at the top of each box */
 }
 
 .product-detail img {
     width: 100%;
     height: auto;
     max-height: 200px;
-    object-fit: contain; /* Ensures the full image fits without cropping */
+    object-fit: contain;  /* Ensures the full image fits without cropping */
     margin-bottom: 10px;
 }
 
