@@ -19,9 +19,6 @@ class Collection(models.Model):  # Changed from Category to Collection
 
 
 class Product(models.Model):
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     SIZE_CHOICES = [
         ('S', 'Small'),
         ('M', 'Medium'),
@@ -29,16 +26,7 @@ class Product(models.Model):
         ('XL', 'Extra Large'),
     ]
 
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
-=======
     collection = models.ForeignKey(Collection, related_name='products', on_delete=models.CASCADE)  # Changed 'category' to 'collection'
->>>>>>> b453a0bd6c4b94119d237be781848c5478e5ca66
-=======
-    collection = models.ForeignKey(Collection, related_name='products', on_delete=models.CASCADE)  # Changed 'category' to 'collection'
->>>>>>> b453a0bd6c4b94119d237be781848c5478e5ca66
-=======
-    collection = models.ForeignKey(Collection, related_name='products', on_delete=models.CASCADE)  # Changed 'category' to 'collection'
->>>>>>> b453a0bd6c4b94119d237be781848c5478e5ca66
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
