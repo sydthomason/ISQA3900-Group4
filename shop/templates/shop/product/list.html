@@ -6,26 +6,29 @@
 {% endblock %}
 
 {% block content %}
+    <div class="collections">
+        <h2>Collections</h2>
+        <ul>
+            <li><a href="{% url 'shop:product_list' %}">All</a></li>
+            {% for col in collections %}
+                <li><a href="{% url 'shop:product_list_by_collection' col.slug %}">{{ col.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
     <div class="product-list">
         {% for product in products %}
         <div class="product-detail">
-            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-            <div class="product-info">
-                <h2>{{ product.name }}</h2>
-                <h3><a href="{{ product.collection.get_absolute_url }}">{{ product.collection }}</a></h3>
-                <p class="price">${{ product.price }}</p>
-                <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                    {{ product.cart_product_form }}  <!-- Use the unique form for each product -->
-                    {% csrf_token %}
-                    <input type="submit" value="Add to cart">
-                </form>
-                <p>{{ product.description|linebreaks }}</p>
-            </div>
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="{{ product.name }}">
+            <h2>{{ product.name }}</h2>
+            <p class="price">${{ product.price }}</p>
+            <p>{{ product.description|linebreaks }}</p>
+            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                {{ product.cart_product_form }}
+                {% csrf_token %}
+                <input type="submit" value="Add to cart">
+            </form>
         </div>
-        <br>
         {% endfor %}
-    </div>
-    <div>
-        <a href="{% url 'shop:product_list' %}" class="button light">Continue shopping</a>
     </div>
 {% endblock %}

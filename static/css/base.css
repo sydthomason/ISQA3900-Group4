@@ -1,9 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 body {
-    margin:0;
-    padding:0;
-    font-family:helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: helvetica, sans-serif;
 }
 
 h1 {
@@ -26,7 +26,7 @@ h2 {
     text-transform: uppercase;
 }
 
-h3, h4, h5 , h6 {
+h3, h4, h5, h6 {
     font-family: 'Ubuntu', sans-serif;
     font-weight: normal;
     text-transform: uppercase;
@@ -164,70 +164,82 @@ ul.errorlist {
     overflow: hidden;
 }
 
-#sidebar {
-    width: 220px;
-    padding: 30px 20px 0 0;
+/* Sidebar for Collections */
+.collections {
     float: left;
-}
-
-#sidebar ul {
-    margin: 0;
-    padding: 0;
-}
-
-#sidebar ul li {
-    margin: 0;
-    list-style: none;
-    padding: 10px 14px;
-}
-
-#sidebar ul li a {
-    display: block;
-}
-
-#sidebar ul li.selected {
-    background: #000;
-    border-radius: 4px;
-}
-
-#sidebar ul li.selected a {
-    color: #fff;
-}
-
-#main {
-    float: left;
-    width: 96%;
-    margin-right: -220px;
-    overflow: hidden;
-}
-
-/* New Styles for Product List and Product Detail */
-
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Space between products */
-}
-
-.product-detail {
-    display: flex;
-    width: 100%;
-    margin-bottom: 20px;
-    align-items: flex-start;
-}
-
-.product-detail img {
-    width: 150px; /* Adjust size as needed */
+    width: 20%;
+    padding: 20px;
+    background-color: #f4f4f4;
     margin-right: 20px;
 }
 
+.collections h2 {
+    margin-bottom: 15px;
+}
+
+.collections ul {
+    list-style: none;
+    padding: 0;
+}
+
+.collections ul li {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.collections ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.collections ul li a:hover {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Main Product List */
+.product-list {
+    float: left;
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-detail {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.product-detail img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
 .product-info {
-    max-width: 60%; /* Prevents product info from stretching too wide */
+    text-align: center;
+}
+
+.product-detail h2 {
+    margin-top: 10px;
+    font-size: 1.5rem;
 }
 
 .product-detail .price {
     color: #333;
-    font-size: 24px;
+    font-size: 1.2rem;
     font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-detail p {
+    font-size: 1rem;
+    color: #666;
     margin: 10px 0;
 }

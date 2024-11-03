@@ -12,13 +12,13 @@ def product_list(request, collection_slug=None):
         products = products.filter(collection=collection)
     cart = Cart(request)
     for product in products:
-        product.cart_product_form = CartAddProductForm()  # Assigning a unique form to each product
-    return render(request,
-                  'shop/product/list.html',
-                  {'collection': collection,
-                   'collections': collections,
-                   'products': products,
-                   'cart': cart})
+        product.cart_product_form = CartAddProductForm()
+    return render(request, 'shop/product/list.html', {
+        'collection': collection,
+        'collections': collections,
+        'products': products,
+        'cart': cart
+    })
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
@@ -34,8 +34,8 @@ def product_detail(request, id, slug):
     else:
         choices = [(1, 0)]
     cart_product_form = CartAddProductForm(my_choices=choices)
-    return render(request,
-                  'shop/product/detail.html',
-                  {'product': product,
-                   'cart_product_form': cart_product_form,
-                   'cart': cart})
+    return render(request, 'shop/product/detail.html', {
+        'product': product,
+        'cart_product_form': cart_product_form,
+        'cart': cart
+    })
