@@ -248,4 +248,120 @@ ul.errorlist {
     color: #666;
     margin: 10px 0;
 }
+/* Style for Login and Sign Up buttons */
+.nav-buttons a {
+    text-decoration: none;
+    color: white;
+    background-color: #000000; /* Blue color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.nav-buttons a:hover {
+    background-color: #000000; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.nav-buttons a:active {
+    background-color: #000000; /* Even darker blue when active */
+    transform: scale(1); /* Reset scale when clicked */
+}
+form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    font-weight: bold;
+}
+/* Updated Form Styles for Alignment */
+form {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Center the form with a defined width */
+    margin: 0 auto; /* Align form to the center */
+}
+
+form .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+form .form-group label {
+    flex: 0 0 150px; /* Fixed width for labels */
+    text-align: right;
+    margin-right: 10px;
+}
+
+form .form-group input {
+    flex: 1; /* Input takes up remaining space */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff; /* Ensure a consistent background */
+}
+
+form button {
+    width: 100%; /* Full-width button */
+    padding: 10px;
+    background: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background: #000000;
+}
+
+form button:active {
+    background: #000000;
+}
+
+/* Error message styling for better visibility */
+form .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.nav-button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #000; /* Matches the Home button */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.nav-button:hover {
+    background-color: #555; /* Darker shade for hover effect */
+    color: #fff;
+}
+
+.nav-button h2 {
+    display: inline; /* Keeps the font styling */
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}

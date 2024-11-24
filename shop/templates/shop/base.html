@@ -1,64 +1,76 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}The Suit Vault{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        /* Inline CSS to specifically style the HOME button */
+        button.nav-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button.nav-button:hover {
+            background-color: #333; /* Slightly lighter black on hover */
+        }
+
+        button.nav-button h2 {
+            color: white; /* Ensures the text remains white inside the button */
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <header style="text-align: center; margin-top: 50px;">
         <h1>The Suit Vault</h1>
         <p>Omaha, NE, 2024</p>
     </header>
-<div id="header">
-    <button onclick="window.location.href='/'"><h2>HOME</h2></button>
-</div>
-    <!--Display Login/Logout right-justified in navbar -->
-<ul class="nav navbar-nav ml-auto">
-    {% if user.is_authenticated %}
-        <li>
-            <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Log out</button>
-            </form>
-        </li>
 
-    {% else %}
-        <li><a class="nav-link" href="{% url 'login' %}"><span
-                class="glyphicon glyphicon-log-in" ></span>Login</a>
-        </li>
-        <li><a class="nav-link" href="{% url 'register' %}"><span class="glyphicon glyphicon-log-in"></span>Sign Up</a>
-        </li>
-
-    {% endif %}
-</ul>
-<div id="subheader">
-    <div class="cart">
-        {% with total_items=cart|length %}
-            {% if cart|length > 0 %}
-                Your cart:
-                <a style="color: white" href="{% url "cart:cart_detail" %}">
-                    {{ total_items }} item{{ total_items|pluralize }},
-                    ${{ cart.get_total_price }}
-                </a>
-            {% else %}
-                Your cart is empty.
-            {% endif %}
-        {% endwith %}
+    <div id="header">
+        <!-- HOME button -->
+        <button onclick="window.location.href='/'" class="nav-button"><h2>HOME</h2></button>
     </div>
-</div>
 
-<div id="content">
-    {% block content %}
-    {% endblock %}
-</div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
--->
+    <!-- Navigation Bar -->
+    <div class="nav-buttons" style="text-align: right; margin-right: 50px; margin-top: 20px;">
+        {% if user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="nav-button">Log out</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}" class="nav-button">Login</a>
+            <a href="{% url 'register' %}" class="nav-button">Sign Up</a>
+        {% endif %}
+    </div>
+
+    <div id="subheader">
+        <div class="cart">
+            {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    Your cart:
+                    <a style="color: white" href="{% url "cart:cart_detail" %}">
+                        {{ total_items }} item{{ total_items|pluralize }},
+                        ${{ cart.get_total_price }}
+                    </a>
+                {% else %}
+                    Your cart is empty.
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>
