@@ -99,3 +99,13 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_REDIRECT_URL = '/'
+
+
+# Email backend settings for sending reset emails
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'derek.lacy12@gmail.com'
+EMAIL_HOST_PASSWORD = 'zxxo sfjd jpej bgof'  # Your app password
+DEFAULT_FROM_EMAIL = 'Your Site Name <derek.lacy12@gmail.com>'
